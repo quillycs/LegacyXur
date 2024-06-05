@@ -233,4 +233,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# File containing environment variables
+.env
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,visualstu
