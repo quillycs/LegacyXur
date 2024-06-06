@@ -1,4 +1,5 @@
 import os
+import random
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -24,7 +25,26 @@ async def xur(ctx):
     hours, remainder = divmod(time_difference.seconds, 3600)
     minutes, _ = divmod(remainder, 60)
 
-    formatted_message = f"There are {days} days, {hours} hours, and {minutes} minutes left until Xur arrives."
+    quotes = [
+        "So lonely here.",
+        "I am only an Agent. The Nine rule beyond the Jovians.",
+        "I cannot explain what the Nine are. They are... very large. I cannot explain. The fault is mine, not yours.",
+        "I think it is very possible that I am here to help you.",
+        "Each mote of dust tells a story of ancient Earth.",
+        "I think the cells of this body are dying.",
+        "I do not entirely control my movements.",
+        "Some of the cells in this body began on this world, how strange to return.",
+        "There are no birds where I came from. The things that fly... are like shadows.",
+        "I understood my mission when the Nine put it in me, but now I cannot articulate it.",
+        "This is but one end.",
+        "These inner worlds are very strange.",
+        "My movements are to a significant degree dependent on planetary alignments.",
+        "I feel a great many consciousnesses impinging on mine, and all of them so small and lonely."
+    ]
+
+    random_quote = random.choice(quotes)
+
+    formatted_message = f'There are {days} days, {hours} hours, and {minutes} minutes left until Xur arrives.\n\n"*{random_quote}*" - Xur, Agent of the Nine'
 
     await ctx.send(formatted_message)
 
