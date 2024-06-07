@@ -44,7 +44,12 @@ async def xur(ctx):
 
     random_quote = random.choice(quotes)
 
-    formatted_message = f'There are {days} days, {hours} hours, and {minutes} minutes left until Xur arrives.\n\n"*{random_quote}*" - Xur, Agent of the Nine'
+    formatted_message = ""
+
+    if days < 0 or hours < 0 or minutes < 0:
+        formatted_message = f'Xur is online.\n\n"*{random_quote}*" - Xur, Agent of the Nine'
+    else:
+        formatted_message = f'There are {days} days, {hours} hours, and {minutes} minutes left until Xur arrives.\n\n"*{random_quote}*" - Xur, Agent of the Nine'
 
     await ctx.send(formatted_message)
 
