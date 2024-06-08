@@ -74,7 +74,7 @@ async def xur(ctx):
         message = (
             f"Xur is selling the following Exotic items:\n"
             f"{item_list}\n\n"
-            f"He is also has these for sale:\n"
+            f"He also has these for sale:\n"
             f"{second_item_list}\n\n"
             f"*{random_quote}* - Xur, Agent of the Nine"
         )
