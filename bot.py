@@ -25,21 +25,6 @@ async def xur(ctx):
 
     response = requests.get(url, headers = headers)
 
-    if response.status_code == 200:
-        data = response.json()
-
-        item_hashes = []
-
-        for category in data["Response"]["data"]["saleItemCategories"]:
-            for sale_item in category["saleItems"]:
-                item_hash = sale_item["item"]["itemHash"]
-                item_hashes.append(item_hash)
-
-        await ctx.send(f"Item hashes: {item_hashes}")
-    else:
-        await ctx.send(f"Failed to retrieve data. Status code: {response.status_code}")
-
-    '''
     quotes = [
         "So lonely here.",
         "I am only an Agent. The Nine rule beyond the Jovians.",
@@ -59,9 +44,19 @@ async def xur(ctx):
 
     random_quote = random.choice(quotes)
 
-    formatted_message = f'"*{random_quote}*" - Xur, Agent of the Nine'
+    if response.status_code == 200:
+        data = response.json()
 
-    await ctx.send(formatted_message)
-    '''
+        item_hashes = []
+
+        for category in data["Response"]["data"]["saleItemCategories"]:
+            for sale_item in category["saleItems"]:
+                item_hash = sale_item["item"]["itemHash"]
+                item_hashes.append(item_hash)
+
+        await ctx.send(f"Item hashes: {item_hashes}\n\n'*{random_quote}*' - Xur, Agent of the Nine")
+    else:
+        # Calculate when Xur will next arrive
+        await ctx.send(f"Xur has not arrived yet.\n\n'*{random_quote}*' - Xur, Agent of the Nine")
 
 bot.run(TOKEN)
