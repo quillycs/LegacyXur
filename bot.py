@@ -7,20 +7,20 @@ from dotenv import load_dotenv
 from datetime import datetime, timedelta, timezone
 
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
-API_KEY = os.getenv('BUNGIE_API')
+TOKEN = os.getenv("DISCORD_TOKEN")
+API_KEY = os.getenv("BUNGIE_API")
 
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = commands.Bot(command_prefix = "!", intents = intents)
 
 @bot.command()
 async def xur(ctx):
     url = "https://bungie.net/d1/Platform/Destiny/Advisors/Xur/"
 
     headers = {
-        "X-API-Key": API_KEY,
+        "X-API-Key": API_KEY
     }
 
     response = requests.get(url, headers = headers)
