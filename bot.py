@@ -43,15 +43,10 @@ async def xur(ctx):
     ]
 
     items = {
-        1665465325: "((GENESIS CHAIN~))",
-        3563445476: "Abyss Defiant (Adept)",
-        1344441638: "Anguish of Drystan (Adept)",
-        2512322824: "Atheon's Epilogue (Adept)",
-        2748609458: "Fabian Strategy",
-        99462853: "Universal Remote",
-        941890990: "Helm of Inmost Light",
-        1458254033: "Don't Touch Me",
-        1519376147: "Obsidian Mind"
+        99462853: "Universal Remote - 17 Strange Coins",
+        941890990: "Helm of Inmost Light - 13 Strange Coins",
+        1519376147: "Obsidian Mind - 13 Strange Coins",
+        1458254033: "Don't Touch Me - 13 Strange Coins",
     }
 
     random_quote = random.choice(quotes)
@@ -69,14 +64,14 @@ async def xur(ctx):
 
         item_list = "\n".join([f"• {item}" for item in item_names])
 
-        second_item_list = "\n".join([f"• {item}" for item in ["Heavy Ammo Synthesis", "Three of Coins", "Glass Needles", "Emerald Coil", "Void Drive"]])
+        second_item_list = "\n".join([f"• {item}" for item in ["3 Heavy Ammo Synthesis - 1 Strange Coin", "10 Heavy Ammo Synthesis - 3 Strange Coins", "Three of Coins - 7 Strange Coins", "Glass Needles - 3 Strange Coins, 3 Motes of Light & 1 Exotic Shard", "Emerald Coil - 23 Strange Coins", "Void Drive - 23 Strange Coins", "Exotic Shard - 7 Strange Coins", "Mote of Light - 2 Strange Coins"]])
 
         message = (
             f"Xur is selling the following Exotic items:\n"
             f"{item_list}\n\n"
             f"He also has these for sale:\n"
             f"{second_item_list}\n\n"
-            f"*{random_quote}* - Xur, Agent of the Nine"
+            f"'*{random_quote}*' - Xur, Agent of the Nine"
         )
         
         await ctx.send(message)
