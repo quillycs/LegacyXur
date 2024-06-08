@@ -42,19 +42,44 @@ async def xur(ctx):
         "I feel a great many consciousnesses impinging on mine, and all of them so small and lonely."
     ]
 
+    items = {
+        1665465325: "((GENESIS CHAIN~))",
+        3563445476: "Abyss Defiant (Adept)",
+        1344441638: "Anguish of Drystan (Adept)",
+        2512322824: "Atheon's Epilogue (Adept)",
+        2748609458: "Fabian Strategy",
+        99462853: "Universal Remote",
+        941890990: "Helm of Inmost Light",
+        1458254033: "Don't Touch Me",
+        1519376147: "Obsidian Mind"
+    }
+
     random_quote = random.choice(quotes)
 
     if response.status_code == 200:
         data = response.json()
 
-        item_hashes = []
+        item_names = []
 
         for category in data["Response"]["data"]["saleItemCategories"]:
             for sale_item in category["saleItems"]:
                 item_hash = sale_item["item"]["itemHash"]
-                item_hashes.append(item_hash)
+                if item_hash in items:
+                    item_names.append(items[item_hash])
 
-        await ctx.send(f"Item hashes: {item_hashes}\n\n'*{random_quote}*' - Xur, Agent of the Nine")
+        item_list = "\n".join([f"• {item}" for item in item_names])
+
+        second_item_list = "\n".join([f"• {item}" for item in ["Heavy Ammo Synthesis", "Three of Coins", "Glass Needles", "Emerald Coil", "Void Drive"]])
+
+        message = (
+            f"Xur is selling the following Exotic items:\n"
+            f"{item_list}\n\n"
+            f"He is also has these for sale:\n"
+            f"{second_item_list}\n\n"
+            f"*{random_quote}* - Xur, Agent of the Nine"
+        )
+        
+        await ctx.send(message)
     else:
         current_utc_time = datetime.now(timezone.utc)
         days_until_friday = (4 - current_utc_time.weekday() + 7) % 7
