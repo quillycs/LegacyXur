@@ -1,5 +1,6 @@
 import os
 import random
+import requests
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
@@ -7,6 +8,7 @@ from datetime import datetime, timedelta, timezone
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+API_KEY = os.getenv('BUNGIE_API')
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -15,16 +17,29 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.command()
 async def xur(ctx):
-    current_utc_time = datetime.now(timezone.utc)
-    days_until_friday = (4 - current_utc_time.weekday() + 7) % 7
-    nearest_friday = current_utc_time + timedelta(days=days_until_friday)
-    nearest_friday_9am = nearest_friday.replace(hour=9, minute=0, second=0, microsecond=0)
-    time_difference = nearest_friday_9am - current_utc_time
+    url = "https://bungie.net/d1/Platform/Destiny/Advisors/Xur/"
 
-    days = time_difference.days
-    hours, remainder = divmod(time_difference.seconds, 3600)
-    minutes, _ = divmod(remainder, 60)
+    headers = {
+        "X-API-Key": API_KEY,
+    }
 
+    response = requests.get(url, headers = headers)
+
+    if response.status_code == 200:
+        data = response.json()
+
+        item_hashes = []
+
+        for category in data["Response"]["data"]["saleItemCategories"]:
+            for sale_item in category["saleItems"]:
+                item_hash = sale_item["item"]["itemHash"]
+                item_hashes.append(item_hash)
+
+        await ctx.send(f"Item hashes: {item_hashes}")
+    else:
+        await ctx.send(f"Failed to retrieve data. Status code: {response.status_code}")
+
+    '''
     quotes = [
         "So lonely here.",
         "I am only an Agent. The Nine rule beyond the Jovians.",
@@ -44,13 +59,9 @@ async def xur(ctx):
 
     random_quote = random.choice(quotes)
 
-    formatted_message = ""
-
-    if days < 0 or hours < 0 or minutes < 0:
-        formatted_message = f'Xur is online.\n\n"*{random_quote}*" - Xur, Agent of the Nine'
-    else:
-        formatted_message = f'There are {days} days, {hours} hours, and {minutes} minutes left until Xur arrives.\n\n"*{random_quote}*" - Xur, Agent of the Nine'
+    formatted_message = f'"*{random_quote}*" - Xur, Agent of the Nine'
 
     await ctx.send(formatted_message)
+    '''
 
 bot.run(TOKEN)
