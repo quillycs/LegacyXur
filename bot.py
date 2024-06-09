@@ -51,14 +51,27 @@ async def xur(ctx):
 
     random_quote = random.choice(quotes)
 
-    if response.status_code == 200:
-        data = response.json()
+    data = response.json()
 
+    if data.get("ErrorCode") == 1627:
+        current_utc_time = datetime.now(timezone.utc)
+        days_until_friday = (4 - current_utc_time.weekday() + 7) % 7
+        nearest_friday = current_utc_time + timedelta(days=days_until_friday)
+        nearest_friday_9am = nearest_friday.replace(hour=9, minute=0, second=0, microsecond=0)
+        time_difference = nearest_friday_9am - current_utc_time
+
+        days = time_difference.days
+        hours, remainder = divmod(time_difference.seconds, 3600)
+        minutes, _ = divmod(remainder, 60)
+
+        await ctx.send(f"There are {days} days, {hours} hours, and {minutes} minutes left until Xur arrives.\n\n'*{random_quote}*' - Xur, Agent of the Nine")
+    else:
         item_names = []
 
         for category in data["Response"]["data"]["saleItemCategories"]:
             for sale_item in category["saleItems"]:
                 item_hash = sale_item["item"]["itemHash"]
+                
                 if item_hash in items:
                     item_names.append(items[item_hash])
 
@@ -75,17 +88,5 @@ async def xur(ctx):
         )
         
         await ctx.send(message)
-    else:
-        current_utc_time = datetime.now(timezone.utc)
-        days_until_friday = (4 - current_utc_time.weekday() + 7) % 7
-        nearest_friday = current_utc_time + timedelta(days=days_until_friday)
-        nearest_friday_9am = nearest_friday.replace(hour=9, minute=0, second=0, microsecond=0)
-        time_difference = nearest_friday_9am - current_utc_time
-
-        days = time_difference.days
-        hours, remainder = divmod(time_difference.seconds, 3600)
-        minutes, _ = divmod(remainder, 60)
-
-        await ctx.send(f"There are {days} days, {hours} hours, and {minutes} minutes left until Xur arrives.\n\n'*{random_quote}*' - Xur, Agent of the Nine")
 
 bot.run(TOKEN)
