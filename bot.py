@@ -36,13 +36,34 @@ QUOTES = [
 ]
 
 ITEMS = {
-    99462853: "Universal Remote - 17 Strange Coins",
-    941890990: "Helm of Inmost Light - 13 Strange Coins",
-    1519376147: "Obsidian Mind - 13 Strange Coins",
-    1458254033: "Don't Touch Me - 13 Strange Coins",
+    2055601060: "Hard Light",
+    2055601062: "Monte Carlo",
+    2055601061: "SUROS Regime",
+    255654879: "Zhalo Supercell",
+    3078564839: "Plan C",
+    346443850: "Pocket Infinity",
+    3012398148: "Telesto",
+    2447423792: "Hawkoom",
+    2447423793: "The Last Word",
+    3851373522: "Nemesis Star",
+    57660786: "Super Good Advice",
+    57660787: "Thunderlord",
+    1177550374: "Bad Juju",
+    1177550375: "Red Death",
+    2808364179: "Dragon's Breath",
+    2808364178: "Truth",
+    1346849289: "MIDA Multi-Tool",
+    3688594190: "The Jade Rabbit",
+    99462852: "Invective",
+    99462854: "The 4th Horseman",
+    99462853: "Universal Remote",
+    3938709034: "Trespasser",
+    3227022823: "Hereafter",
+    3835813881: "No Land Beyond",
+    3835813880: "Patience and Time",
 }
 
-EXTRA_ITEMS = [
+CURIOS = [
     "3 Heavy Ammo Synthesis - 1 Strange Coin",
     "10 Heavy Ammo Synthesis - 3 Strange Coins",
     "Three of Coins - 7 Strange Coins",
@@ -88,7 +109,7 @@ async def xur(ctx):
                       for item in category["saleItems"] if item["item"]["itemHash"] in ITEMS]
 
         item_list = "\n".join([f"• {item}" for item in item_names])
-        extra_item_list = "\n".join([f"• {item}" for item in EXTRA_ITEMS])
+        extra_item_list = "\n".join([f"• {item}" for item in CURIOS])
 
         message = (
             f"Xur is selling the following Exotic items:\n{item_list}\n\n"
