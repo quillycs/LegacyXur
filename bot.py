@@ -61,6 +61,23 @@ ITEMS = {
     3227022823: "Hereafter",
     3835813881: "No Land Beyond",
     3835813880: "Patience and Time",
+    1520434776: "Achlyophage Symbiote",
+    1520434778: "ATS/8 ARACHNID",
+    1520434781: "Celestial Nighthawk",
+    1054763959: "Graviton Forfeit",
+    1520434777: "Knucklehead Radar",
+    1520434779: "Mask of the Third Man",
+    1054763958: "Skyburners Annex",
+    1458254033: "Don't Touch Me",
+    1458254034: "Khepri's Sting",
+    2217280774: "Shinobu's Vow",
+    1458254032: "Young Ahamkara's Spine",
+    105485105: "ATS/8 Tarantella",
+    2882684152: "Crest of Alpha Lupi",
+    2882684153: "Lucky Raspberry",
+    1775312683: "Bones of Eao",
+    1394543945: "Fr0st-EE5",
+    1775312682: "Radiant Dance Machines"
 }
 
 CURIOS = [
