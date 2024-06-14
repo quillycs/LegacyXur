@@ -96,6 +96,24 @@ ITEMS = {
     2479526175: "Dunemarchers",
     4267828624: "Mk. 44 Stand Asides",
     4267828625: "Peregrine Greaves",
+    1519376145: "Apotheosis Veil",
+    2778128366: "Astrocyte Verse",
+    1519376146: "Light Beyond Nemesis",
+    1519376147: "Obsidian Mind",
+    1519376144: "Skull of Dire Ahamkara",
+    1519376148: "The Ram",
+    2778128367: "THE STAG",
+    1275480032: "Claws of Ahamkara",
+    1275480035: "Nothing Manacles",
+    1062853751: "Ophidian Aspect",
+    1275480033: "Sunbreakers",
+    1062853750: "The Impossible Machines",
+    2898542650: "Alchemist's Raiment",
+    3574778423: "Heart of the Praxic Fire",
+    3574778420: "Purifier Robes",
+    3574778421: "Starfire Protocol",
+    3574778422: "Voidfang Vestments",
+    2275132880: "Transversive Steps"
 }
 
 CURIOS = [
