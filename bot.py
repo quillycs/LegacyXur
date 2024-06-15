@@ -235,17 +235,17 @@ async def xur(ctx):
         weapon_bundles_names = [WEAPON_BUNDLES[item["item"]["itemHash"]] for category in data["Response"]["data"]["saleItemCategories"]
                       for item in category["saleItems"] if item["item"]["itemHash"] in WEAPON_BUNDLES]
 
-        items_list = "\n".join([f"• {item}" for item in item_names])
-        heavy_ammo_synthesis_list = "\n".join([f"• {item}" for item in HEAVY_AMMO_SYNTHESIS])
-        curios_list = heavy_ammo_synthesis_list + "\n" + "\n".join([f"• {item}" for item in curios_names])
-        material_exchange_list = "\n".join([f"• {item}" for item in material_exchange_names])
-        weapon_bundles_list = "\n".join([f"• {item}" for item in weapon_bundles_names])
+        items_list = "\n".join([f"- {item}" for item in item_names])
+        heavy_ammo_synthesis_list = "\n".join([f"- {item}" for item in HEAVY_AMMO_SYNTHESIS])
+        curios_list = heavy_ammo_synthesis_list + "\n" + "\n".join([f"- {item}" for item in curios_names])
+        material_exchange_list = "\n".join([f"- {item}" for item in material_exchange_names])
+        weapon_bundles_list = "\n".join([f"- {item}" for item in weapon_bundles_names])
 
         message = (
-            f"Exotic gear:\n{items_list}\n\n"
-            f"Curios:\n{curios_list}\n\n"
-            f"Material exchange:\n{material_exchange_list}\n\n"
-            f"Weapon bundles:\n{weapon_bundles_list}\n\n"
+            f"__Exotic gear:__\n{items_list}\n\n"
+            f"__Curios:__\n{curios_list}\n\n"
+            f"__Material exchange:__\n{material_exchange_list}\n\n"
+            f"__Weapon bundles:__\n{weapon_bundles_list}\n\n"
             f"'{random.choice(QUOTES)}' - Xur, Agent of the Nine"
         )
         
