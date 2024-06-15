@@ -117,8 +117,12 @@ ITEMS = {
     2275132880: "Transversive Steps | Leg Armor | 13 <:strange_coin:1249138524117274775>",
 }
 
+HEAVY_AMMO_SYNTHESIS = [
+    "Heavy Ammo Synthesis | 3x | 1 <:strange_coin:1249138524117274775>",
+    "Heavy Ammo Synthesis | 10x | 3 <:strange_coin:1249138524117274775>",
+]
+
 CURIOS = {
-    211861343: "Heavy Ammo Synthesis",
     417308266: "Three of Coins | 7 <:strange_coin:1249138524117274775>",
     2633085824: "Glass Needles | 3 <:strange_coin:1249138524117274775>, 3 <:mote_of_light:1251536764049559623> and 1 <:exotic_shard:1251536923319861248>",
     1880070440: "'Emerald Coil' | 23 <:strange_coin:1249138524117274775>",
@@ -191,7 +195,8 @@ async def xur(ctx):
                       for item in category["saleItems"] if item["item"]["itemHash"] in WEAPON_BUNDLES]
 
         items_list = "\n".join([f"• {item}" for item in item_names])
-        curios_list = "\n".join([f"• {item}" for item in curios_names])
+        heavy_ammo_synthesis_list = "\n".join([f"• {item}" for item in HEAVY_AMMO_SYNTHESIS])
+        curios_list = heavy_ammo_synthesis_list + "\n" + "\n".join([f"• {item}" for item in curios_names])
         material_exchange_list = "\n".join([f"• {item}" for item in material_exchange_names])
         weapon_bundles_list = "\n".join([f"• {item}" for item in weapon_bundles_names])
 
