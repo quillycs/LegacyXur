@@ -78,6 +78,7 @@ QUOTES = [
 
 ITEMS = {
     974721182: "Legacy Engram | Guantlet Armor Engram | 29 <:strange_coin:1249138524117274775>",
+    1503830964: "Legacy Engram | Chest Armor Engram | 29 <:strange_coin:1249138524117274775>",
     1707223616: "Legacy Engram | Leg Armor Engram | 29 <:strange_coin:1249138524117274775>",
     2055601060: "Hard Light | Auto Rifle | 23 <:strange_coin:1249138524117274775>",
     2055601062: "Monte Carlo | Auto Rifle | 23 <:strange_coin:1249138524117274775>",
@@ -171,6 +172,7 @@ CURIOS = {
     1880070440: "'Emerald Coil' | 23 <:strange_coin:1249138524117274775>",
     1880070441: "Plasma Drive | 23 <:strange_coin:1249138524117274775>",
     1880070443: "Void Drive | 23 <:strange_coin:1249138524117274775>",
+    1880070442: "Stealth Drive | 23 <:strange_coin:1249138524117274775>",
 }
 
 MATERIAL_EXCHANGE = {
@@ -183,6 +185,7 @@ WEAPON_BUNDLES = {
     2850106041: "Zhalo Supercell and Shock Hazard | 30 <:strange_coin:1249138524117274775>",
     2302453584: "Invective and Storm's Reproach | 30 <:strange_coin:1249138524117274775>",
     2910674074: "Red Death and Steel Witch | 30 <:strange_coin:1249138524117274775>",
+    303989948: "Nemesis Star and Silver Bullet | 30 <:strange_coin:1249138524117274775>",
 }
 
 # Function to fetch Xur's inventory
